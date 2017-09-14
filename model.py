@@ -99,5 +99,9 @@ class Plosca:
                     cekini += 1
         return cekini
 
-
+    def poln_stolpec(self, stolpec):
+        if (self.stevilo_zetonov_v_stolpcu(stolpec) == 6):
+            return True
+        else:
+            return False
 
