@@ -87,7 +87,7 @@ class Plosca:
                               #plosca.polna_plosca() napolni mrežo
                 
     def kdaj_je_plosca_polna(self):
-        for stolpec in range(self.visina):
+        for stolpec in range(self.dolzina):
             if self.plosca[0][stolpec] == ' ':
                 return False         
         return True                 #ce je plosca polna vrne True
