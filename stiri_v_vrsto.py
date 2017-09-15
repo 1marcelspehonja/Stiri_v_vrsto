@@ -48,22 +48,17 @@ class Stiri_v_vrsto:
         gumb_izhod.pack()
 
         def nova_igra2():
-            
-            for vrstica in range(self.plosca.visina):
-            
-                
-                for stolpec in range(self.plosca.dolzina):
-                    def pocisti(vrstica=vrstica, stolpec=stolpec):
-                        return 
-                    gumb = tk.Button(prikaz_plosce, text=' ',height=2, width=4,
-                                     command=pocisti, bg = "grey75" )
-                    gumb.grid(row=vrstica, column=stolpec)
-            return self.potek_igre(stolpec, vrstica)
+            prikaz_plosce.destroy()
+            self.obvestilo.destroy()
+            self.obvestilo2.destroy()
+            self.navodila.destroy()
+            gumb_izhod.destroy()
+            gumb_nova_igra.destroy()
+            return  ( Stiri_v_vrsto(okno), okno.mainloop())
                      
-        
         gumb_nova_igra = tk.Button(okno, text='Nova igra',
                                    fg="green",bg = "azure",
-                                   command=nova_igra2 )
+                                   command= nova_igra2  )
         gumb_nova_igra.pack()
 
     def zmagovalec(self):
@@ -120,13 +115,6 @@ class Stiri_v_vrsto:
                 break
             else:
                 break
-
-    def nova_igra(self):
-        return
-        
-
-    def izrisi(self):
-        print(self.plosca)
   
         
     def dodaj_zeton2(self, stolpec, vrstica, zeton):
@@ -140,15 +128,6 @@ class Stiri_v_vrsto:
                 self.gumbi[vrstica - 1][stolpec] = zeton
                 return
         self.gumbi[self.plosca.visina - 1][stolpec] = zeton
-        
-
-    def krizec(self):
-        self.canvas.create_line(self.koordinate)
-        self.canvas.create_line(self.koordinate2)
-
-        
-    def krozec(self):
-        self.canvas.create_oval(self.koordinate)
 
 
 okno = tk.Tk()
