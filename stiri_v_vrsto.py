@@ -11,9 +11,9 @@ class Stiri_v_vrsto:
         self.igralec2 = True
 
         self.obvestilo = tk.Label(okno, text='Pozdravljeni v igri štiri v vrsto!',
-                                 fg="navy" )
+                                 fg="navy", font=('comicsans', 15)  )
         self.obvestilo2 = tk.Label(okno, text='Igralec 1 je moder, igralec 2 je rdeč',
-                                 fg="gray" )
+                                 fg="gray", font=('comicsans', 10) )
         self.obvestilo2.pack()
         self.obvestilo.pack()
 
@@ -30,8 +30,8 @@ class Stiri_v_vrsto:
                     self.zmagovalec()
                     
                         
-                gumb = tk.Button(prikaz_plosce, text=' ',height=2, width=4,
-                                 command=dodaj_zeton, bg = "grey75" )
+                gumb = tk.Button(prikaz_plosce, text=' ',height=4, width=8,
+                                 command=dodaj_zeton, bg = "SlateGray3" )
                 gumb.grid(row=vrstica, column=stolpec)
                 vrstica_gumbov.append(gumb)
             self.gumbi.append(vrstica_gumbov)
@@ -39,12 +39,12 @@ class Stiri_v_vrsto:
 
         
         self.navodila = tk.Label(okno, text='Igralec 1, izberi stolpec!',
-                                 fg="blue" )
+                                 fg="blue",  font=('comicsans', 14) )
         self.navodila.pack()
 
         
         gumb_izhod = tk.Button(okno, text='Izhod', fg="brown",
-                               command=okno.destroy)
+                               font=('helvica', 11), command=okno.destroy)
         gumb_izhod.pack()
 
         def nova_igra2():
@@ -57,9 +57,9 @@ class Stiri_v_vrsto:
             return  ( Stiri_v_vrsto(okno), okno.mainloop())
                      
         gumb_nova_igra = tk.Button(okno, text='Nova igra',
-                                   fg="green",bg = "azure",
-                                   command= nova_igra2  )
-        gumb_nova_igra.pack()
+                                   fg="green", font=('helvica', 11),
+                                   bg = "LightBlue1", command= nova_igra2  )
+        gumb_nova_igra. pack()
 
     def zmagovalec(self):
         zmaga_prvi = self.plosca.zmaga('blue')
@@ -108,6 +108,7 @@ class Stiri_v_vrsto:
                 
             if zmaga_drugi ==  True:
                 self.zmaga = True
+
                 break
             elif self.plosca.kdaj_je_plosca_polna() == True:
                 self.navodila.config(text='Igra je izenačena!')
@@ -121,7 +122,8 @@ class Stiri_v_vrsto:
         rezultat = self.plosca.poteza(stolpec, zeton)
         (
             self.gumbi[6 - (self.plosca.stevilo_zetonov_v_stolpcu(stolpec))]
-        [stolpec].config(text= zeton, bg = zeton )
+        [stolpec].config( bg = zeton, borderwidth=2)
+            
          )
         for vrstica in range(self.plosca.visina):
             if self.gumbi[vrstica][stolpec] != '':
